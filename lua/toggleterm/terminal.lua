@@ -181,6 +181,7 @@ function Terminal:new(term)
   if id and terminals[id] then return terminals[id] end
   local conf = config.get()
   self.__index = self
+  term.cmd = conf.cmd
   term.direction = term.direction or conf.direction
   term.id = id or next_id()
   term.float_opts = vim.tbl_deep_extend("keep", term.float_opts or {}, conf.float_opts)
